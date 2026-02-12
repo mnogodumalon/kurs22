@@ -1,0 +1,373 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Entity colors */
+  --color-entity-kurse: var(--entity-kurse);
+  --color-entity-dozenten: var(--entity-dozenten);
+  --color-entity-teilnehmer: var(--entity-teilnehmer);
+  --color-entity-raeume: var(--entity-raeume);
+  --color-entity-anmeldungen: var(--entity-anmeldungen);
+
+  /* Custom properties */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Base colors - Professional academic theme */
+  --background: hsl(225 25% 97%);
+  --foreground: hsl(225 30% 15%);
+
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(225 30% 15%);
+
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(225 30% 15%);
+
+  /* Primary - Deep Indigo */
+  --primary: hsl(230 70% 45%);
+  --primary-foreground: hsl(0 0% 100%);
+  --primary-glow: hsl(230 70% 65%);
+
+  /* Secondary */
+  --secondary: hsl(225 20% 93%);
+  --secondary-foreground: hsl(225 30% 25%);
+
+  /* Muted */
+  --muted: hsl(225 15% 92%);
+  --muted-foreground: hsl(225 15% 45%);
+
+  /* Accent - Warm Orange for CTAs */
+  --accent: hsl(25 95% 53%);
+  --accent-foreground: hsl(0 0% 100%);
+
+  --destructive: hsl(0 72% 51%);
+
+  --border: hsl(225 20% 88%);
+  --input: hsl(225 20% 88%);
+  --ring: hsl(230 70% 45%);
+
+  /* Status colors */
+  --success: hsl(150 60% 40%);
+  --warning: hsl(38 92% 50%);
+
+  /* Entity accent colors */
+  --entity-kurse: hsl(230 70% 50%);
+  --entity-dozenten: hsl(270 60% 55%);
+  --entity-teilnehmer: hsl(190 80% 42%);
+  --entity-raeume: hsl(38 92% 50%);
+  --entity-anmeldungen: hsl(150 60% 40%);
+
+  /* Charts */
+  --chart-1: hsl(230 70% 50%);
+  --chart-2: hsl(270 60% 55%);
+  --chart-3: hsl(190 80% 42%);
+  --chart-4: hsl(38 92% 50%);
+  --chart-5: hsl(150 60% 40%);
+
+  /* Sidebar */
+  --sidebar: hsl(230 35% 20%);
+  --sidebar-foreground: hsl(225 20% 95%);
+  --sidebar-primary: hsl(230 70% 60%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(230 30% 28%);
+  --sidebar-accent-foreground: hsl(225 20% 95%);
+  --sidebar-border: hsl(230 25% 30%);
+  --sidebar-ring: hsl(230 70% 60%);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(230 70% 45%), hsl(230 70% 55%));
+  --gradient-header: linear-gradient(135deg, hsl(230 35% 22%), hsl(230 40% 28%));
+  --gradient-accent: linear-gradient(135deg, hsl(25 95% 50%), hsl(25 95% 58%));
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px hsl(225 30% 15% / 0.05);
+  --shadow-md: 0 4px 12px hsl(225 30% 15% / 0.08);
+  --shadow-lg: 0 8px 24px hsl(225 30% 15% / 0.12);
+  --shadow-primary: 0 4px 14px hsl(230 70% 45% / 0.25);
+  --shadow-accent: 0 4px 14px hsl(25 95% 53% / 0.3);
+}
+
+.dark {
+  --background: hsl(225 30% 10%);
+  --foreground: hsl(225 20% 95%);
+  --card: hsl(225 25% 14%);
+  --card-foreground: hsl(225 20% 95%);
+  --popover: hsl(225 25% 14%);
+  --popover-foreground: hsl(225 20% 95%);
+  --primary: hsl(230 70% 60%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(225 20% 18%);
+  --secondary-foreground: hsl(225 20% 90%);
+  --muted: hsl(225 20% 18%);
+  --muted-foreground: hsl(225 15% 60%);
+  --accent: hsl(25 95% 55%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 72% 60%);
+  --border: hsl(225 20% 22%);
+  --input: hsl(225 20% 22%);
+  --ring: hsl(230 70% 60%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Header gradient */
+  .header-gradient {
+    background: var(--gradient-header);
+  }
+
+  /* Card variants */
+  .card-elevated {
+    @apply bg-card rounded-xl;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-entity {
+    @apply bg-card rounded-xl border border-border/50;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+  }
+
+  .card-entity:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border);
+  }
+
+  /* Entity badges */
+  .badge-kurse {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full;
+    background: hsl(230 70% 50% / 0.12);
+    color: hsl(230 70% 40%);
+  }
+
+  .badge-dozenten {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full;
+    background: hsl(270 60% 55% / 0.12);
+    color: hsl(270 60% 45%);
+  }
+
+  .badge-teilnehmer {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full;
+    background: hsl(190 80% 42% / 0.12);
+    color: hsl(190 80% 35%);
+  }
+
+  .badge-raeume {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full;
+    background: hsl(38 92% 50% / 0.12);
+    color: hsl(38 92% 38%);
+  }
+
+  .badge-anmeldungen {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full;
+    background: hsl(150 60% 40% / 0.12);
+    color: hsl(150 60% 32%);
+  }
+
+  /* Status badges */
+  .badge-success {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full;
+    background: hsl(150 60% 40% / 0.12);
+    color: hsl(150 60% 32%);
+  }
+
+  .badge-warning {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full;
+    background: hsl(38 92% 50% / 0.12);
+    color: hsl(38 92% 38%);
+  }
+
+  .badge-error {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full;
+    background: hsl(0 72% 51% / 0.12);
+    color: hsl(0 72% 45%);
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm transition-all;
+    background: var(--gradient-primary);
+    color: hsl(0 0% 100%);
+    box-shadow: var(--shadow-primary);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px hsl(230 70% 45% / 0.35);
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm transition-all;
+    background: var(--gradient-accent);
+    color: hsl(0 0% 100%);
+    box-shadow: var(--shadow-accent);
+  }
+
+  .btn-accent:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px hsl(25 95% 53% / 0.4);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm transition-all;
+    color: var(--muted-foreground);
+  }
+
+  .btn-ghost:hover {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+
+  /* Navigation tabs */
+  .nav-tab {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg font-medium text-sm transition-all cursor-pointer;
+    color: hsl(225 20% 70%);
+  }
+
+  .nav-tab:hover {
+    background: hsl(230 30% 28%);
+    color: hsl(225 20% 90%);
+  }
+
+  .nav-tab.active {
+    background: hsl(230 70% 50% / 0.2);
+    color: hsl(230 70% 70%);
+  }
+
+  /* Stats card */
+  .stat-card {
+    @apply bg-card rounded-xl p-5 border border-border/50;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold tracking-tight;
+    color: var(--foreground);
+  }
+
+  .stat-label {
+    @apply text-sm font-medium;
+    color: var(--muted-foreground);
+  }
+
+  /* Table styles */
+  .data-table {
+    @apply w-full;
+  }
+
+  .data-table th {
+    @apply text-left text-xs font-semibold uppercase tracking-wider px-4 py-3;
+    color: var(--muted-foreground);
+    background: var(--muted);
+  }
+
+  .data-table td {
+    @apply px-4 py-3.5 text-sm;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table tr:hover td {
+    background: hsl(225 25% 97% / 0.5);
+  }
+
+  /* Form inputs */
+  .form-input {
+    @apply w-full px-4 py-2.5 rounded-lg border text-sm transition-all;
+    background: var(--card);
+    border-color: var(--border);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px hsl(230 70% 45% / 0.1);
+  }
+
+  .form-label {
+    @apply block text-sm font-medium mb-1.5;
+    color: var(--foreground);
+  }
+
+  /* Animation classes */
+  .fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .slide-in {
+    animation: slideIn 0.25s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
